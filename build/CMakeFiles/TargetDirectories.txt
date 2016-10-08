@@ -1,0 +1,7 @@
+/home/sgfairbro/moos-ivp/moos-ivp-shane/build/src/lib_behaviors-test/CMakeFiles/BHV_SimpleWaypoint.dir
+/home/sgfairbro/moos-ivp/moos-ivp-shane/build/src/pCommunicationAngle/CMakeFiles/pCommunicationAngle.dir
+/home/sgfairbro/moos-ivp/moos-ivp-shane/build/src/pExampleApp/CMakeFiles/pExampleApp.dir
+/home/sgfairbro/moos-ivp/moos-ivp-shane/build/src/pOdometry/CMakeFiles/pOdometry.dir
+/home/sgfairbro/moos-ivp/moos-ivp-shane/build/src/pPrimeFactor/CMakeFiles/pPrimeFactor.dir
+/home/sgfairbro/moos-ivp/moos-ivp-shane/build/src/pPrimeFactorTester/CMakeFiles/pPrimeFactorTester.dir
+/home/sgfairbro/moos-ivp/moos-ivp-shane/build/src/pXRelayTest/CMakeFiles/pXRelayTest.dir
