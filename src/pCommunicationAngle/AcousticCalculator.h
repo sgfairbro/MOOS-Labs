@@ -20,16 +20,16 @@ class AcousticCalculator{
 public:
     AcousticCalculator(AcousticStruct&);
     virtual ~AcousticCalculator();
+    bool solvePath(); 
+    string pathString(); 
+    string connectivityLocString(); 
+    void setUsername(string v) {user = v;}; 
 
 private:
-    bool solvePath(); 
    	double monkProfileSpeed(double);
    	void calcElevAngle(); 
    	void calcTransmissionLoss();
-    string pathString(); 
-    string connectivityLocString(); 
-   	void setUsername(string v) {user = v;}; 
-
+    
    	AcousticStruct info; 
    	
    	double rvector; //r coordinate in cylindrical coordinates

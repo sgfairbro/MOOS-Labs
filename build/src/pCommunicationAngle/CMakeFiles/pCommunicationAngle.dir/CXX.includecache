@@ -516,6 +516,10 @@ set
 time.h
 -
 
+/home/sgfairbro/moos-ivp/moos-ivp-shane/src/pCommunicationAngle/AcousticCalculator.cpp
+AcousticCalculator.h
+/home/sgfairbro/moos-ivp/moos-ivp-shane/src/pCommunicationAngle/AcousticCalculator.h
+
 /home/sgfairbro/moos-ivp/moos-ivp-shane/src/pCommunicationAngle/AcousticCalculator.h
 math.h
 -

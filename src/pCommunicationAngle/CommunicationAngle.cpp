@@ -114,6 +114,15 @@ bool CommunicationAngle::OnConnectToServer()
 bool CommunicationAngle::Iterate()
 {
   static double previousTime = MOOSTime(); 
+
+  if (previousTime - MOOSTime() > m_time_interval){
+    if (m_calculator->solvePath()){
+      m_calculator->pathString();
+    }
+    else{
+      m_calculator->connectivityLocString();
+    }
+  }
   m_iterations++;
   return(true);
 }
@@ -135,19 +144,19 @@ bool CommunicationAngle::OnStartUp()
       
       //Sound speed in m/s at the sea surface
       if(param == "surface_sound_speed") {
-        m_surface_sound_speed = strtod(value, NULL); 
+        m_surface_sound_speed = strtod(value.c_str(), NULL); 
       }
       //Sound speed gradient with depth, in (m/s)/m
       else if(param == "sound_speed_gradient") {
-        m_sound_speed_gradient = strtod(value, NULL);
+        m_sound_speed_gradient = strtod(value.c_str(), NULL);
       }
       //Water depth in meters
       else if(param == "water_depth") {
-        m_water_depth = strtod(value, NULL); 
+        m_water_depth = strtod(value.c_str(), NULL); 
       }
       //Time interval in seconds between estimates
       else if(param == "time_interval") {
-        m_time_interval = strtod(value, NULL); 
+        m_time_interval = strtod(value.c_str(), NULL); 
       }
     }
   }
