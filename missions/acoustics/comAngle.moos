@@ -1,8 +1,8 @@
-ServerHost = local//henrik.mit.edu 
-ServerPort = 9000//9011
+ServerHost = henrik.mit.edu
+ServerPort = 9011
 Simulator  = true
 
-Community  = alder
+Community  = Spermwhale 
 
 MOOSTimeWarp = 1
 // Antler configuration  block
@@ -10,8 +10,8 @@ ProcessConfig = ANTLER
 {
   MSBetweenLaunches = 200
 
-  Run = MOOSDB	     	     @ NewConsole = false
-  Run = pCommunicationAngle  @ NewConsole = true
+  Run = MOOSDB	     	     @ NewConsole = true 
+  Run = pCommunicationAngle  @ NewConsole = true ~pComAngle_sgfairbro
   Run = uXMS		     @ NewConsole = true
 }
 
