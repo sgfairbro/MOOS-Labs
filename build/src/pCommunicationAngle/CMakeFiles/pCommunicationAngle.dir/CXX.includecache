@@ -500,12 +500,6 @@ MOOS/libMOOS/App/MOOSApp.h
 MOOS/libMOOS/App/MOOSInstrument.h
 /home/sgfairbro/moos-ivp/MOOS/MOOSCore/Core/libMOOS/include/MOOS/libMOOS/MOOS/libMOOS/App/MOOSInstrument.h
 
-/home/sgfairbro/moos-ivp/ivp/src/lib_mbutil/ColorParse.h
-vector
--
-string
--
-
 /home/sgfairbro/moos-ivp/ivp/src/lib_mbutil/MBUtils.h
 vector
 -
@@ -535,36 +529,4 @@ AcousticStruct.cpp
 /home/sgfairbro/moos-ivp/moos-ivp-shane/src/pCommunicationAngle/AcousticStruct.cpp
 
 /home/sgfairbro/moos-ivp/moos-ivp-shane/src/pCommunicationAngle/AcousticStruct.cpp
-
-/home/sgfairbro/moos-ivp/moos-ivp-shane/src/pCommunicationAngle/CommunicationAngle.cpp
-CommunicationAngle.h
-/home/sgfairbro/moos-ivp/moos-ivp-shane/src/pCommunicationAngle/CommunicationAngle.h
-
-/home/sgfairbro/moos-ivp/moos-ivp-shane/src/pCommunicationAngle/CommunicationAngle.h
-MOOS/libMOOS/MOOSLib.h
-/home/sgfairbro/moos-ivp/moos-ivp-shane/src/pCommunicationAngle/MOOS/libMOOS/MOOSLib.h
-MBUtils.h
-/home/sgfairbro/moos-ivp/moos-ivp-shane/src/pCommunicationAngle/MBUtils.h
-AcousticCalculator.h
-/home/sgfairbro/moos-ivp/moos-ivp-shane/src/pCommunicationAngle/AcousticCalculator.h
-AcousticStruct.cpp
-/home/sgfairbro/moos-ivp/moos-ivp-shane/src/pCommunicationAngle/AcousticStruct.cpp
-iterator
--
-memory
--
-
-/home/sgfairbro/moos-ivp/moos-ivp-shane/src/pCommunicationAngle/CommunicationAngle_Info.h
-
-/home/sgfairbro/moos-ivp/moos-ivp-shane/src/pCommunicationAngle/main.cpp
-string
--
-MBUtils.h
-/home/sgfairbro/moos-ivp/moos-ivp-shane/src/pCommunicationAngle/MBUtils.h
-ColorParse.h
-/home/sgfairbro/moos-ivp/moos-ivp-shane/src/pCommunicationAngle/ColorParse.h
-CommunicationAngle.h
-/home/sgfairbro/moos-ivp/moos-ivp-shane/src/pCommunicationAngle/CommunicationAngle.h
-CommunicationAngle_Info.h
-/home/sgfairbro/moos-ivp/moos-ivp-shane/src/pCommunicationAngle/CommunicationAngle_Info.h
 

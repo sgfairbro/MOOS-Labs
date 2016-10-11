@@ -30,8 +30,7 @@ private:
    	void calcElevAngle(); 
    	void calcTransmissionLoss();
     
-   	AcousticStruct info; 
-   	
+   	AcousticStruct info; //Contains all the parameters for calculating a path
    	double rvector; //r coordinate in cylindrical coordinates
    	double zdiff; //difference between vehicle depths
    	double elevAngle; //angle to transmit the sound ray in radians

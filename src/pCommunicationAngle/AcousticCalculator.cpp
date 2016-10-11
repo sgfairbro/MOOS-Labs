@@ -7,9 +7,6 @@
 
 #include "AcousticCalculator.h"
 
-/*
- */
-
 AcousticCalculator::AcousticCalculator(AcousticStruct& input) {
    info = input; 
 
@@ -20,7 +17,7 @@ AcousticCalculator::AcousticCalculator(AcousticStruct& input) {
    zdiff = info.navDepthCollaborator - info.navDepth; 
 
    //default username
-   user = "Jane"; 
+   user = "sgfairbro"; 
 }
 
 

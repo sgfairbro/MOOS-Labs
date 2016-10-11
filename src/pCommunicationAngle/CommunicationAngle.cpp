@@ -8,8 +8,6 @@
 
 #include "CommunicationAngle.h"
 
-using namespace std;
-
 //---------------------------------------------------------
 // Constructor
 
@@ -18,7 +16,13 @@ CommunicationAngle::CommunicationAngle()
 
   m_currentParameters = new AcousticStruct();
   m_calculator = new AcousticCalculator(*m_currentParameters);
-  //calculator = make_unique<AcousticCalculator>();
+  
+  //Set defaults
+  m_time_interval = 3; // seconds
+  m_water_depth = 6000; // meters
+  m_surface_sound_speed = 1480; // m/s
+  m_sound_speed_gradient = 0.016; // (m/s)/m
+
 }
 
 //---------------------------------------------------------
@@ -78,18 +82,8 @@ bool CommunicationAngle::OnNewMail(MOOSMSG_LIST &NewMail)
       m_currentParameters->navSpeedCollaborator = msg.GetDouble();
     }
 
-#if 0 // Keep these around just for template
-    string key   = msg.GetKey();
-    string comm  = msg.GetCommunity();
-    double dval  = msg.GetDouble();
-    string sval  = msg.GetString(); 
-    string msrc  = msg.GetSource();
-    double mtime = msg.GetTime();
-    bool   mdbl  = msg.IsDouble();
-    bool   mstr  = msg.IsString();
-#endif
-   }
-	
+  }
+
    return(true);
 }
 
@@ -98,29 +92,31 @@ bool CommunicationAngle::OnNewMail(MOOSMSG_LIST &NewMail)
 
 bool CommunicationAngle::OnConnectToServer()
 {
-   // register for variables here
-   // possibly look at the mission file?
-   // m_MissionReader.GetConfigurationParam("Name", <string>);
-   // m_Comms.Register("VARNAME", 0);
-	
    RegisterVariables();
    return(true);
 }
 
 //---------------------------------------------------------
 // Procedure: Iterate()
-//            happens AppTick times per second
-
+// This function will solve for an acoustic path between the two vehicles
+// every m_time_interval seconds. If Apptick has been set to a longer time
+// than m_time_interval, then the time between calculations will be governed
+// by Apptick instead. 
 bool CommunicationAngle::Iterate()
 {
   static double previousTime = MOOSTime(); 
 
   if (previousTime - MOOSTime() > m_time_interval){
+    
+    string result; 
+
     if (m_calculator->solvePath()){
-      m_calculator->pathString();
+      result = m_calculator->pathString();
+      m_Comms.Notify("ACOUSTIC_PATH", result);
     }
     else{
-      m_calculator->connectivityLocString();
+      result = m_calculator->connectivityLocString();
+      m_Comms.Notify("CONNECTIVITY_LOCATION", result);
     }
   }
   m_iterations++;
@@ -185,4 +181,3 @@ void CommunicationAngle::RegisterVariables()
   Register("collaborator_NAV_HEADING", 0);
   Register("collaborator_NAV_SPEED", 0);
 }
-

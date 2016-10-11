@@ -1,0 +1,50 @@
+ServerHost = local//henrik.mit.edu 
+ServerPort = 9000//9011
+Simulator  = true
+
+Community  = alder
+
+MOOSTimeWarp = 1
+// Antler configuration  block
+ProcessConfig = ANTLER
+{
+  MSBetweenLaunches = 200
+
+  Run = MOOSDB	     	     @ NewConsole = false
+  Run = pCommunicationAngle  @ NewConsole = true
+  Run = uXMS		     @ NewConsole = true
+}
+
+//------------------------------------------
+// pCommunicationAngle config block
+
+ProcessConfig = pCommunicationAngle
+{
+  AppTick	= 10
+  CommsTick	= 10
+
+  surface_sound_speed = 1480
+  sound_speed_gradient = 0.016
+  water_depth = 6000 
+  time_interval = 3
+}
+
+ProcessConfig = pPrimeFactorTester
+{
+  AppTick 	= 10
+  CommsTick	= 10
+}
+
+ProcessConfig = uXMS
+{
+  AppTick = 4
+  CommsTick = 4
+
+  VAR = ELEV_ANGLE
+  VAR = ELEV_ANGLE_REF
+  VAR = ACOUSTIC_PATH 
+  VAR = ACOUSTIC_PATH_REF
+  VAR = CONNECTIVITY_LOCATION
+  VAR = CONNECTIVITY_LOCATION_REF
+}
+
