@@ -4,6 +4,8 @@ SET(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 SET(CMAKE_DEPENDS_CHECK_CXX
+  "/home/sgfairbro/moos-ivp/moos-ivp-shane/src/pCommunicationAngle/AcousticCalculator.cpp" "/home/sgfairbro/moos-ivp/moos-ivp-shane/build/src/pCommunicationAngle/CMakeFiles/pCommunicationAngle.dir/AcousticCalculator.cpp.o"
+  "/home/sgfairbro/moos-ivp/moos-ivp-shane/src/pCommunicationAngle/AcousticStruct.cpp" "/home/sgfairbro/moos-ivp/moos-ivp-shane/build/src/pCommunicationAngle/CMakeFiles/pCommunicationAngle.dir/AcousticStruct.cpp.o"
   "/home/sgfairbro/moos-ivp/moos-ivp-shane/src/pCommunicationAngle/CommunicationAngle.cpp" "/home/sgfairbro/moos-ivp/moos-ivp-shane/build/src/pCommunicationAngle/CMakeFiles/pCommunicationAngle.dir/CommunicationAngle.cpp.o"
   "/home/sgfairbro/moos-ivp/moos-ivp-shane/src/pCommunicationAngle/CommunicationAngle_Info.cpp" "/home/sgfairbro/moos-ivp/moos-ivp-shane/build/src/pCommunicationAngle/CMakeFiles/pCommunicationAngle.dir/CommunicationAngle_Info.cpp.o"
   "/home/sgfairbro/moos-ivp/moos-ivp-shane/src/pCommunicationAngle/main.cpp" "/home/sgfairbro/moos-ivp/moos-ivp-shane/build/src/pCommunicationAngle/CMakeFiles/pCommunicationAngle.dir/main.cpp.o"

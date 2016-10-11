@@ -26,11 +26,17 @@ PrimeMap::PrimeMap(const PrimeMap& orig) {
 }
 
 PrimeMap::~PrimeMap() {
+    m_keys->clear(); 
     delete m_keys;
     m_keys = NULL; 
     
+    for (vector<PrimeEntry*>::iterator it = m_primes->begin(); it != m_primes->end(); ++it){
+        delete (*it); 
+    }
+    m_primes->clear(); 
     delete m_primes; 
-    m_primes = NULL; 
+    m_primes = NULL;
+
 }
 
 void PrimeMap::insert(unsigned long int key, PrimeEntry* prime){

@@ -28,11 +28,11 @@ PrimeEntry::PrimeEntry(unsigned long int entry) {
 }
 
 PrimeEntry::PrimeEntry(const PrimeEntry& orig) {
-    delete m_primes;
-    m_primes = NULL; 
+
 }
 
 PrimeEntry::~PrimeEntry() {
+    m_primes->clear(); 
     delete m_primes;
     m_primes = NULL;
 }

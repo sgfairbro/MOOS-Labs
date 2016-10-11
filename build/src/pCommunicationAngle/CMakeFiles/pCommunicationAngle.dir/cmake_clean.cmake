@@ -1,6 +1,8 @@
 FILE(REMOVE_RECURSE
   "CMakeFiles/pCommunicationAngle.dir/CommunicationAngle.cpp.o"
   "CMakeFiles/pCommunicationAngle.dir/CommunicationAngle_Info.cpp.o"
+  "CMakeFiles/pCommunicationAngle.dir/AcousticCalculator.cpp.o"
+  "CMakeFiles/pCommunicationAngle.dir/AcousticStruct.cpp.o"
   "CMakeFiles/pCommunicationAngle.dir/main.cpp.o"
   "../../../bin/pCommunicationAngle.pdb"
   "../../../bin/pCommunicationAngle"

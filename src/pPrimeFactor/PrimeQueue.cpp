@@ -26,7 +26,9 @@ PrimeQueue::PrimeQueue(const PrimeQueue& orig) {
 }
 
 PrimeQueue::~PrimeQueue() {
-    
+    queue<unsigned long int>* empty; 
+    swap(m_queue, empty); 
+    delete m_queue; 
 }
 
 //Insert an element into the queue

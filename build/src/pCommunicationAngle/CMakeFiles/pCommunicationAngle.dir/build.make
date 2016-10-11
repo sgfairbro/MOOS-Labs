@@ -95,9 +95,55 @@ src/pCommunicationAngle/CMakeFiles/pCommunicationAngle.dir/CommunicationAngle_In
 
 src/pCommunicationAngle/CMakeFiles/pCommunicationAngle.dir/CommunicationAngle_Info.cpp.o.provides.build: src/pCommunicationAngle/CMakeFiles/pCommunicationAngle.dir/CommunicationAngle_Info.cpp.o
 
+src/pCommunicationAngle/CMakeFiles/pCommunicationAngle.dir/AcousticCalculator.cpp.o: src/pCommunicationAngle/CMakeFiles/pCommunicationAngle.dir/flags.make
+src/pCommunicationAngle/CMakeFiles/pCommunicationAngle.dir/AcousticCalculator.cpp.o: ../src/pCommunicationAngle/AcousticCalculator.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/sgfairbro/moos-ivp/moos-ivp-shane/build/CMakeFiles $(CMAKE_PROGRESS_3)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object src/pCommunicationAngle/CMakeFiles/pCommunicationAngle.dir/AcousticCalculator.cpp.o"
+	cd /home/sgfairbro/moos-ivp/moos-ivp-shane/build/src/pCommunicationAngle && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pCommunicationAngle.dir/AcousticCalculator.cpp.o -c /home/sgfairbro/moos-ivp/moos-ivp-shane/src/pCommunicationAngle/AcousticCalculator.cpp
+
+src/pCommunicationAngle/CMakeFiles/pCommunicationAngle.dir/AcousticCalculator.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/pCommunicationAngle.dir/AcousticCalculator.cpp.i"
+	cd /home/sgfairbro/moos-ivp/moos-ivp-shane/build/src/pCommunicationAngle && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/sgfairbro/moos-ivp/moos-ivp-shane/src/pCommunicationAngle/AcousticCalculator.cpp > CMakeFiles/pCommunicationAngle.dir/AcousticCalculator.cpp.i
+
+src/pCommunicationAngle/CMakeFiles/pCommunicationAngle.dir/AcousticCalculator.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pCommunicationAngle.dir/AcousticCalculator.cpp.s"
+	cd /home/sgfairbro/moos-ivp/moos-ivp-shane/build/src/pCommunicationAngle && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/sgfairbro/moos-ivp/moos-ivp-shane/src/pCommunicationAngle/AcousticCalculator.cpp -o CMakeFiles/pCommunicationAngle.dir/AcousticCalculator.cpp.s
+
+src/pCommunicationAngle/CMakeFiles/pCommunicationAngle.dir/AcousticCalculator.cpp.o.requires:
+.PHONY : src/pCommunicationAngle/CMakeFiles/pCommunicationAngle.dir/AcousticCalculator.cpp.o.requires
+
+src/pCommunicationAngle/CMakeFiles/pCommunicationAngle.dir/AcousticCalculator.cpp.o.provides: src/pCommunicationAngle/CMakeFiles/pCommunicationAngle.dir/AcousticCalculator.cpp.o.requires
+	$(MAKE) -f src/pCommunicationAngle/CMakeFiles/pCommunicationAngle.dir/build.make src/pCommunicationAngle/CMakeFiles/pCommunicationAngle.dir/AcousticCalculator.cpp.o.provides.build
+.PHONY : src/pCommunicationAngle/CMakeFiles/pCommunicationAngle.dir/AcousticCalculator.cpp.o.provides
+
+src/pCommunicationAngle/CMakeFiles/pCommunicationAngle.dir/AcousticCalculator.cpp.o.provides.build: src/pCommunicationAngle/CMakeFiles/pCommunicationAngle.dir/AcousticCalculator.cpp.o
+
+src/pCommunicationAngle/CMakeFiles/pCommunicationAngle.dir/AcousticStruct.cpp.o: src/pCommunicationAngle/CMakeFiles/pCommunicationAngle.dir/flags.make
+src/pCommunicationAngle/CMakeFiles/pCommunicationAngle.dir/AcousticStruct.cpp.o: ../src/pCommunicationAngle/AcousticStruct.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/sgfairbro/moos-ivp/moos-ivp-shane/build/CMakeFiles $(CMAKE_PROGRESS_4)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object src/pCommunicationAngle/CMakeFiles/pCommunicationAngle.dir/AcousticStruct.cpp.o"
+	cd /home/sgfairbro/moos-ivp/moos-ivp-shane/build/src/pCommunicationAngle && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pCommunicationAngle.dir/AcousticStruct.cpp.o -c /home/sgfairbro/moos-ivp/moos-ivp-shane/src/pCommunicationAngle/AcousticStruct.cpp
+
+src/pCommunicationAngle/CMakeFiles/pCommunicationAngle.dir/AcousticStruct.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/pCommunicationAngle.dir/AcousticStruct.cpp.i"
+	cd /home/sgfairbro/moos-ivp/moos-ivp-shane/build/src/pCommunicationAngle && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/sgfairbro/moos-ivp/moos-ivp-shane/src/pCommunicationAngle/AcousticStruct.cpp > CMakeFiles/pCommunicationAngle.dir/AcousticStruct.cpp.i
+
+src/pCommunicationAngle/CMakeFiles/pCommunicationAngle.dir/AcousticStruct.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pCommunicationAngle.dir/AcousticStruct.cpp.s"
+	cd /home/sgfairbro/moos-ivp/moos-ivp-shane/build/src/pCommunicationAngle && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/sgfairbro/moos-ivp/moos-ivp-shane/src/pCommunicationAngle/AcousticStruct.cpp -o CMakeFiles/pCommunicationAngle.dir/AcousticStruct.cpp.s
+
+src/pCommunicationAngle/CMakeFiles/pCommunicationAngle.dir/AcousticStruct.cpp.o.requires:
+.PHONY : src/pCommunicationAngle/CMakeFiles/pCommunicationAngle.dir/AcousticStruct.cpp.o.requires
+
+src/pCommunicationAngle/CMakeFiles/pCommunicationAngle.dir/AcousticStruct.cpp.o.provides: src/pCommunicationAngle/CMakeFiles/pCommunicationAngle.dir/AcousticStruct.cpp.o.requires
+	$(MAKE) -f src/pCommunicationAngle/CMakeFiles/pCommunicationAngle.dir/build.make src/pCommunicationAngle/CMakeFiles/pCommunicationAngle.dir/AcousticStruct.cpp.o.provides.build
+.PHONY : src/pCommunicationAngle/CMakeFiles/pCommunicationAngle.dir/AcousticStruct.cpp.o.provides
+
+src/pCommunicationAngle/CMakeFiles/pCommunicationAngle.dir/AcousticStruct.cpp.o.provides.build: src/pCommunicationAngle/CMakeFiles/pCommunicationAngle.dir/AcousticStruct.cpp.o
+
 src/pCommunicationAngle/CMakeFiles/pCommunicationAngle.dir/main.cpp.o: src/pCommunicationAngle/CMakeFiles/pCommunicationAngle.dir/flags.make
 src/pCommunicationAngle/CMakeFiles/pCommunicationAngle.dir/main.cpp.o: ../src/pCommunicationAngle/main.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/sgfairbro/moos-ivp/moos-ivp-shane/build/CMakeFiles $(CMAKE_PROGRESS_3)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/sgfairbro/moos-ivp/moos-ivp-shane/build/CMakeFiles $(CMAKE_PROGRESS_5)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object src/pCommunicationAngle/CMakeFiles/pCommunicationAngle.dir/main.cpp.o"
 	cd /home/sgfairbro/moos-ivp/moos-ivp-shane/build/src/pCommunicationAngle && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pCommunicationAngle.dir/main.cpp.o -c /home/sgfairbro/moos-ivp/moos-ivp-shane/src/pCommunicationAngle/main.cpp
 
@@ -122,6 +168,8 @@ src/pCommunicationAngle/CMakeFiles/pCommunicationAngle.dir/main.cpp.o.provides.b
 pCommunicationAngle_OBJECTS = \
 "CMakeFiles/pCommunicationAngle.dir/CommunicationAngle.cpp.o" \
 "CMakeFiles/pCommunicationAngle.dir/CommunicationAngle_Info.cpp.o" \
+"CMakeFiles/pCommunicationAngle.dir/AcousticCalculator.cpp.o" \
+"CMakeFiles/pCommunicationAngle.dir/AcousticStruct.cpp.o" \
 "CMakeFiles/pCommunicationAngle.dir/main.cpp.o"
 
 # External object files for target pCommunicationAngle
@@ -129,6 +177,8 @@ pCommunicationAngle_EXTERNAL_OBJECTS =
 
 ../bin/pCommunicationAngle: src/pCommunicationAngle/CMakeFiles/pCommunicationAngle.dir/CommunicationAngle.cpp.o
 ../bin/pCommunicationAngle: src/pCommunicationAngle/CMakeFiles/pCommunicationAngle.dir/CommunicationAngle_Info.cpp.o
+../bin/pCommunicationAngle: src/pCommunicationAngle/CMakeFiles/pCommunicationAngle.dir/AcousticCalculator.cpp.o
+../bin/pCommunicationAngle: src/pCommunicationAngle/CMakeFiles/pCommunicationAngle.dir/AcousticStruct.cpp.o
 ../bin/pCommunicationAngle: src/pCommunicationAngle/CMakeFiles/pCommunicationAngle.dir/main.cpp.o
 ../bin/pCommunicationAngle: src/pCommunicationAngle/CMakeFiles/pCommunicationAngle.dir/build.make
 ../bin/pCommunicationAngle: /home/sgfairbro/moos-ivp/MOOS/MOOSCore/lib/libMOOS.a
@@ -142,6 +192,8 @@ src/pCommunicationAngle/CMakeFiles/pCommunicationAngle.dir/build: ../bin/pCommun
 
 src/pCommunicationAngle/CMakeFiles/pCommunicationAngle.dir/requires: src/pCommunicationAngle/CMakeFiles/pCommunicationAngle.dir/CommunicationAngle.cpp.o.requires
 src/pCommunicationAngle/CMakeFiles/pCommunicationAngle.dir/requires: src/pCommunicationAngle/CMakeFiles/pCommunicationAngle.dir/CommunicationAngle_Info.cpp.o.requires
+src/pCommunicationAngle/CMakeFiles/pCommunicationAngle.dir/requires: src/pCommunicationAngle/CMakeFiles/pCommunicationAngle.dir/AcousticCalculator.cpp.o.requires
+src/pCommunicationAngle/CMakeFiles/pCommunicationAngle.dir/requires: src/pCommunicationAngle/CMakeFiles/pCommunicationAngle.dir/AcousticStruct.cpp.o.requires
 src/pCommunicationAngle/CMakeFiles/pCommunicationAngle.dir/requires: src/pCommunicationAngle/CMakeFiles/pCommunicationAngle.dir/main.cpp.o.requires
 .PHONY : src/pCommunicationAngle/CMakeFiles/pCommunicationAngle.dir/requires
 

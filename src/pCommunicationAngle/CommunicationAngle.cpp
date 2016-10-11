@@ -5,8 +5,7 @@
 /*    DATE:                                                 */
 /************************************************************/
 
-#include <iterator>
-#include "MBUtils.h"
+
 #include "CommunicationAngle.h"
 
 using namespace std;
@@ -16,8 +15,10 @@ using namespace std;
 
 CommunicationAngle::CommunicationAngle()
 {
-  m_iterations = 0;
-  m_timewarp   = 1;
+
+  m_currentParameters = new AcousticStruct();
+  m_calculator = new AcousticCalculator(*m_currentParameters);
+  //calculator = make_unique<AcousticCalculator>();
 }
 
 //---------------------------------------------------------
@@ -25,6 +26,8 @@ CommunicationAngle::CommunicationAngle()
 
 CommunicationAngle::~CommunicationAngle()
 {
+  delete m_currentParameters; 
+  delete m_calculator; 
 }
 
 //---------------------------------------------------------
@@ -36,6 +39,44 @@ bool CommunicationAngle::OnNewMail(MOOSMSG_LIST &NewMail)
    
   for(p=NewMail.begin(); p!=NewMail.end(); p++) {
     CMOOSMsg &msg = *p;
+    string key = msg.GetKey(); 
+
+    if (key == "VEHICLE_NAME"){
+      m_currentParameters->vehicleName = msg.GetDouble();
+    }
+    else if (key == "COLLABORATOR_NAME"){
+      m_currentParameters->collaboratorName = msg.GetDouble(); 
+    }
+    else if (key == "NAV_X"){
+      m_currentParameters->navX = msg.GetDouble(); 
+    }
+    else if (key == "NAV_Y"){
+      m_currentParameters->navY = msg.GetDouble(); 
+    }
+    else if (key == "NAV_DEPTH"){
+      m_currentParameters->navDepth = msg.GetDouble(); 
+    }
+    else if (key == "NAV_HEADING"){
+      m_currentParameters->navHeading = msg.GetDouble(); 
+    }
+    else if (key == "NAV_SPEED"){
+      m_currentParameters->navSpeed = msg.GetDouble(); 
+    }
+    else if (key == "collaborator_NAV_X"){
+      m_currentParameters->navXCollaborator = msg.GetDouble(); 
+    }
+    else if (key == "collaborator_NAV_Y"){
+      m_currentParameters->navYCollaborator= msg.GetDouble(); 
+    }
+    else if (key == "collaborator_NAV_DEPTH"){
+      m_currentParameters->navDepthCollaborator = msg.GetDouble(); 
+    }
+    else if (key == "collaborator_NAV_HEADING"){
+      m_currentParameters->navHeadingCollaborator = msg.GetDouble(); 
+    }
+    else if (key == "collaborator_NAV_SPEED"){
+      m_currentParameters->navSpeedCollaborator = msg.GetDouble();
+    }
 
 #if 0 // Keep these around just for template
     string key   = msg.GetKey();
@@ -72,6 +113,7 @@ bool CommunicationAngle::OnConnectToServer()
 
 bool CommunicationAngle::Iterate()
 {
+  static double previousTime = MOOSTime(); 
   m_iterations++;
   return(true);
 }
@@ -93,23 +135,23 @@ bool CommunicationAngle::OnStartUp()
       
       //Sound speed in m/s at the sea surface
       if(param == "surface_sound_speed") {
-        //TODO
+        m_surface_sound_speed = strtod(value, NULL); 
       }
       //Sound speed gradient with depth, in (m/s)/m
       else if(param == "sound_speed_gradient") {
-        //TODO
+        m_sound_speed_gradient = strtod(value, NULL);
       }
       //Water depth in meters
       else if(param == "water_depth") {
-        //TODO
+        m_water_depth = strtod(value, NULL); 
       }
       //Time interval in seconds between estimates
       else if(param == "time_interval") {
-        //TODO
+        m_time_interval = strtod(value, NULL); 
       }
     }
   }
-  
+
   m_timewarp = GetMOOSTimeWarp();
 
   RegisterVariables();	

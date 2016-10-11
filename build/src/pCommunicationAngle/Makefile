@@ -112,6 +112,54 @@ pCommunicationAngle/fast:
 	cd /home/sgfairbro/moos-ivp/moos-ivp-shane/build && $(MAKE) -f src/pCommunicationAngle/CMakeFiles/pCommunicationAngle.dir/build.make src/pCommunicationAngle/CMakeFiles/pCommunicationAngle.dir/build
 .PHONY : pCommunicationAngle/fast
 
+AcousticCalculator.o: AcousticCalculator.cpp.o
+.PHONY : AcousticCalculator.o
+
+# target to build an object file
+AcousticCalculator.cpp.o:
+	cd /home/sgfairbro/moos-ivp/moos-ivp-shane/build && $(MAKE) -f src/pCommunicationAngle/CMakeFiles/pCommunicationAngle.dir/build.make src/pCommunicationAngle/CMakeFiles/pCommunicationAngle.dir/AcousticCalculator.cpp.o
+.PHONY : AcousticCalculator.cpp.o
+
+AcousticCalculator.i: AcousticCalculator.cpp.i
+.PHONY : AcousticCalculator.i
+
+# target to preprocess a source file
+AcousticCalculator.cpp.i:
+	cd /home/sgfairbro/moos-ivp/moos-ivp-shane/build && $(MAKE) -f src/pCommunicationAngle/CMakeFiles/pCommunicationAngle.dir/build.make src/pCommunicationAngle/CMakeFiles/pCommunicationAngle.dir/AcousticCalculator.cpp.i
+.PHONY : AcousticCalculator.cpp.i
+
+AcousticCalculator.s: AcousticCalculator.cpp.s
+.PHONY : AcousticCalculator.s
+
+# target to generate assembly for a file
+AcousticCalculator.cpp.s:
+	cd /home/sgfairbro/moos-ivp/moos-ivp-shane/build && $(MAKE) -f src/pCommunicationAngle/CMakeFiles/pCommunicationAngle.dir/build.make src/pCommunicationAngle/CMakeFiles/pCommunicationAngle.dir/AcousticCalculator.cpp.s
+.PHONY : AcousticCalculator.cpp.s
+
+AcousticStruct.o: AcousticStruct.cpp.o
+.PHONY : AcousticStruct.o
+
+# target to build an object file
+AcousticStruct.cpp.o:
+	cd /home/sgfairbro/moos-ivp/moos-ivp-shane/build && $(MAKE) -f src/pCommunicationAngle/CMakeFiles/pCommunicationAngle.dir/build.make src/pCommunicationAngle/CMakeFiles/pCommunicationAngle.dir/AcousticStruct.cpp.o
+.PHONY : AcousticStruct.cpp.o
+
+AcousticStruct.i: AcousticStruct.cpp.i
+.PHONY : AcousticStruct.i
+
+# target to preprocess a source file
+AcousticStruct.cpp.i:
+	cd /home/sgfairbro/moos-ivp/moos-ivp-shane/build && $(MAKE) -f src/pCommunicationAngle/CMakeFiles/pCommunicationAngle.dir/build.make src/pCommunicationAngle/CMakeFiles/pCommunicationAngle.dir/AcousticStruct.cpp.i
+.PHONY : AcousticStruct.cpp.i
+
+AcousticStruct.s: AcousticStruct.cpp.s
+.PHONY : AcousticStruct.s
+
+# target to generate assembly for a file
+AcousticStruct.cpp.s:
+	cd /home/sgfairbro/moos-ivp/moos-ivp-shane/build && $(MAKE) -f src/pCommunicationAngle/CMakeFiles/pCommunicationAngle.dir/build.make src/pCommunicationAngle/CMakeFiles/pCommunicationAngle.dir/AcousticStruct.cpp.s
+.PHONY : AcousticStruct.cpp.s
+
 CommunicationAngle.o: CommunicationAngle.cpp.o
 .PHONY : CommunicationAngle.o
 
@@ -193,6 +241,12 @@ help:
 	@echo "... edit_cache"
 	@echo "... pCommunicationAngle"
 	@echo "... rebuild_cache"
+	@echo "... AcousticCalculator.o"
+	@echo "... AcousticCalculator.i"
+	@echo "... AcousticCalculator.s"
+	@echo "... AcousticStruct.o"
+	@echo "... AcousticStruct.i"
+	@echo "... AcousticStruct.s"
 	@echo "... CommunicationAngle.o"
 	@echo "... CommunicationAngle.i"
 	@echo "... CommunicationAngle.s"

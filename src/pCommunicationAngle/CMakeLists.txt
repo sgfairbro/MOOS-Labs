@@ -8,6 +8,8 @@
 SET(SRC
   CommunicationAngle.cpp
   CommunicationAngle_Info.cpp
+  AcousticCalculator.cpp
+  AcousticStruct.cpp
   main.cpp
 )
 
