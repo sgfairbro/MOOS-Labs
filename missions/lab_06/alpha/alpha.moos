@@ -283,6 +283,7 @@ ProcessConfig = pMarineViewer
   action  = UPDATES_RETURN=speed=1.4
   
   left_context[return]=RETURN_UPDATE="points=$(XPOS),$(YPOS)"
+  left_context[return]=RETURN=true
 
 }
 
