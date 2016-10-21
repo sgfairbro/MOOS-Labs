@@ -1,0 +1,86 @@
+//--------    FILE: bravo.bhv   -------------
+
+initialize   DEPLOY = false
+initialize   RETURN = false
+initialize   LOITER_REGION = east
+
+
+//----------------------------------------------
+Behavior=BHV_Loiter
+{
+
+  //General behavior parameters
+  name       = loiterwest 
+  pwt        = 100
+  condition  = DEPLOY = true
+  condition  = LOITER_REGION = west
+  endflag    = LOITER_REGION = east
+  duration   = 150
+  duration_reset = LOITER_REGION = east
+  perpetual  = true
+
+  //Loiter specific parameters
+  clockwise  = false
+  polygon    = format=radial, x=100, y=-75, radius=30, pts=8, snap=1, label=Polywest
+  speed      = 2.5
+
+	
+}
+
+
+Behavior=BHV_Loiter
+{
+
+  //General behavior parameters
+  name       = loitereast
+  pwt        = 100
+  condition  = DEPLOY = true
+  condition  = LOITER_REGION = east
+  endflag    = LOITER_REGION = west
+  duration   = 150
+  duration_reset = LOITER_REGION = west
+  perpetual  = true
+
+  //Loiter specific parameters
+  clockwise  = false
+  polygon    = format=radial, x=160, y=-50, radius=20, pts=8, snap=1, label=Polyeast
+  speed      = 2.5
+
+	
+}
+
+
+Behavior=BHV_ConstantDepth
+{
+
+  //General behavior parameters
+  name       = constantdepthEast
+  condition  = DEPLOY = true
+  condition  = LOITER_REGION = east
+  duration   = 150
+  duration_reset = LOITER_REGION = west
+  perpetual  = true
+
+  //ConstantDepth specific
+  depth=10
+
+	
+}
+
+
+Behavior=BHV_ConstantDepth
+{
+
+  //General behavior parameters
+  name       = constantdepthWest
+  condition  = DEPLOY = true
+  condition  = LOITER_REGION = west
+  duration   = 150
+  duration_reset = LOITER_REGION = east
+  perpetual  = true
+
+  //ConstantDepth specific
+  depth=30
+
+	
+}
