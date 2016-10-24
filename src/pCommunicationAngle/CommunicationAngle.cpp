@@ -83,7 +83,6 @@ bool CommunicationAngle::OnNewMail(MOOSMSG_LIST &NewMail)
     }
 
   }
-
    return(true);
 }
 

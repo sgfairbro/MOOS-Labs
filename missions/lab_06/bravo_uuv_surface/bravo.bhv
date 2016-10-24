@@ -1,0 +1,154 @@
+//--------    FILE: bravo.bhv   -------------
+
+initialize   DEPLOY = false
+initialize   RETURN = false
+initialize   LOITER_REGION = east
+initialize   RISING = false
+initialize   SURFACE = false
+initialize   CURRENT_DEPTH = -1
+
+//----------------------------------------------
+Behavior=BHV_Loiter
+{
+
+  //General behavior parameters
+  name       = loiterwest 
+  pwt        = 100
+
+  condition  = DEPLOY = true
+  condition  = LOITER_REGION = west
+  condition  = SURFACE = false
+  condition  = RISING  = false
+  endflag    = LOITER_REGION = east
+
+  duration   = 150
+  duration_reset = LOITER_REGION = east
+  duration_idle_decay = false
+  perpetual  = true
+
+  //Loiter specific parameters
+  clockwise  = false
+  polygon    = format=radial, x=100, y=-75, radius=30, pts=8, snap=1, label=Polywest
+  speed      = 2.5
+
+	
+}
+
+
+Behavior=BHV_Loiter
+{
+
+  //General behavior parameters
+  name       = loitereast
+  pwt        = 100
+
+  condition  = DEPLOY = true
+  condition  = LOITER_REGION = east
+  condition  = RISING = false
+  condition  = SURFACE = false
+  endflag    = LOITER_REGION = west
+
+  duration   = 150
+  duration_reset = LOITER_REGION = west
+  duration_idle_decay = false
+  perpetual  = true
+
+  //Loiter specific parameters
+  clockwise  = false
+  polygon    = format=radial, x=160, y=-50, radius=20, pts=8, snap=1, label=Polyeast
+  speed      = 2.5
+
+	
+}
+
+
+Behavior=BHV_ConstantDepth
+{
+
+  //General behavior parameters
+  name       = constantdepthEast
+
+  condition  = DEPLOY = true
+  condition  = SURFACE = false
+  condition  = RISING  = false
+  condition  = LOITER_REGION = east
+
+  duration   = 150
+  duration_reset = LOITER_REGION = west
+  duration_idle_decay = false
+  perpetual  = true
+
+  //ConstantDepth specific
+  depth=10
+
+	
+}
+
+
+Behavior=BHV_ConstantDepth
+{
+
+  //General behavior parameters
+  name       = constantdepthWest
+
+  condition  = DEPLOY = true
+  condition  = SURFACE = false
+  condition  = RISING = false
+  condition  = LOITER_REGION = west
+
+  duration   = 150
+  duration_reset = LOITER_REGION = east
+  perpetual  = true
+
+  //ConstantDepth specific
+  depth=30
+
+	
+}
+
+Behavior=BHV_ConstantDepth
+{
+
+  //General behavior parameters
+  name       = surfaceDepth
+
+  condition  = RISING = true
+  
+  duration = no-time-limit
+  perpetual  = true
+
+  //ConstantDepth specific
+  depth=0
+  depth_monitor=CURRENT_DEPTH
+
+  
+}
+
+Behavior=BHV_Timer
+{
+
+  //General behavior parameters
+  name       = comeToSurfaceTimer
+  condition  = DEPLOY = true
+  endflag    = RISING = true
+  duration   = 200
+  duration_reset = SURFACE = false
+  perpetual  = true
+  
+}
+
+Behavior=BHV_Timer
+{
+
+  //General behavior parameters
+  name       = getGPSTimer
+  condition  = CURRENT_DEPTH == 0
+  condition  = RISING = true
+  runflag    = CURRENT_DEPTH = 0
+  endflag    = SURFACE = false
+  endflag    = RISING = false
+  duration   = 60
+  duration_reset = RISING = false
+  perpetual  = true
+	
+}
