@@ -50,17 +50,3 @@ Processconfig = ANTLER
 #include plug_uProcessWatch.moos
 #include plug_uLoadWatch.moos
 #include plug_pBasicContactMgr.moos
-
-#ifdef VARIATION 1 
-  #include plug_V1_uXMS_GPS.moos
-  #include plug_V1_uXMS_Battery.moos 
-  #include plug_V1_uXMS_Compass.moos
-#endif
-
-#ifdef VARIATION 2
-
-  #include plug_v2_uFldMessageHandler.moos
-#ifdef VNAME henry
-  #include plug_v2_uTimerScript.moos
-#endif
-#endif
