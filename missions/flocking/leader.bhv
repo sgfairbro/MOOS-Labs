@@ -83,8 +83,8 @@ Behavior = BHV_AvoidCollision
          extrapolate = true
                decay = 30,60
 
-        pwt_outer_dist = 20
-        pwt_inner_dist = 11
+        pwt_outer_dist = 2
+        pwt_inner_dist = 1
         completed_dist = 40
      min_util_cpa_dist = 8
      max_util_cpa_dist = 15

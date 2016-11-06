@@ -4,8 +4,8 @@
 initialize   DEPLOY  = false
 initialize   RETURN  = false
 initialize   STATION_KEEP = false
-initialize   SHADOW  = true
-initialize   AVOID   = true
+initialize    SCAN    = true
+initialize   SHADOW  = false
 
 set MODE = ACTIVE {
   DEPLOY = true
@@ -20,6 +20,11 @@ set MODE = RETURNING {
   MODE = ACTIVE
   RETURN = true
 } 
+
+set MODE = SCANNING{
+  MODE = ACTIVE
+  SCAN = true
+}
 
 set MODE = SHADOWING{
   MODE = ACTIVE
@@ -64,6 +69,7 @@ Behavior = BHV_StationKeep
         visual_hints = vertex_size=0, edge_color=gray50
 }
 
+//TODO - change hardcoding of contact in shadow and cutrange
 //----------------------------------------------
 Behavior = BHV_CutRange
 {
@@ -75,7 +81,21 @@ Behavior = BHV_CutRange
   patience = 50
   contact = leader
   on_no_contact_ok=false
-  condition    = SHADOW=true
+  condition    = MODE==SCANNING
   inactiveflag = STATIONING = false
   activeflag   = STATIONING = true
+  inactiveflag   = SHADOW = true
+}
+
+//----------------------------------------------
+Behavior = BHV_Shadow
+{
+  name         = shadow-bhv
+  pwt          = 100
+  
+  //max_range = 30
+  
+  contact = leader
+  condition    = SHADOW=true
+
 }
