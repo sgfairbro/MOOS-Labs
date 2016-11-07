@@ -75,7 +75,7 @@ Behavior = BHV_CutRange
 {
   name         = cut-range
   pwt          = 100
-  pwt_outer_dist = 100
+  pwt_outer_dist = 40
   pwt_inner_dist = 20
   
   patience = 50
