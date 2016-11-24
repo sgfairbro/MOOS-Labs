@@ -1,0 +1,74 @@
+ProcessConfig = pAcommsHandler_$(COMMUNITY)
+{
+    // unique identifier for this node (like a MAC address)
+    modem_id: $(MODEM_ID)
+
+    common
+    {
+        verbosity: DEBUG1
+        show_gui: true
+        app_tick: 10
+        comm_tick: 10 
+        log: false
+    }
+    
+    load_shared_library: "../../lib/liblab12messages.$(LD_EXTENSION)"
+    load_shared_library: "../../lib/liblab12codecs.$(LD_EXTENSION)"    
+    
+    queue_cfg { 
+        message_entry {  
+            protobuf_name: "AcommsExampleMessage1"
+            newest_first: false
+            ttl: 1800  # in seconds
+            value_base: 1  # relative to other messages
+            max_queue: 100  # limit on number of messages in queue
+        }
+        message_entry {  
+            protobuf_name: "AcommsExampleMessage2"
+            newest_first: false
+            ttl: 1800  
+            value_base: 1  
+            max_queue: 100
+        }
+    }
+
+    translator_entry 
+    { 
+        protobuf_name: "AcommsExampleMessage1"
+        trigger { type: TRIGGER_PUBLISH  moos_var: "ACOMMS_EXAMPLE1_OUT"  }
+        create  { technique: TECHNIQUE_PROTOBUF_TEXT_FORMAT  
+                  moos_var: "ACOMMS_EXAMPLE1_OUT" }
+        publish { technique: TECHNIQUE_PROTOBUF_TEXT_FORMAT  
+                  moos_var: "ACOMMS_EXAMPLE1_IN" }
+    }
+
+    translator_entry 
+    { 
+        protobuf_name: "AcommsExampleMessage2"
+        trigger { type: TRIGGER_PUBLISH  moos_var: "ACOMMS_EXAMPLE2_OUT"  }
+        create  { technique: TECHNIQUE_PROTOBUF_TEXT_FORMAT  
+                  moos_var: "ACOMMS_EXAMPLE2_OUT" }
+        publish { technique: TECHNIQUE_PROTOBUF_TEXT_FORMAT  
+                  moos_var: "ACOMMS_EXAMPLE2_IN" }
+    }
+
+    
+    driver_type: DRIVER_UFIELD_SIM_DRIVER
+    driver_cfg 
+    {
+        [goby.moos.protobuf.Config.moos_server]: "$(HOST)"  
+        [goby.moos.protobuf.Config.moos_port]: $(PORT)  
+        [goby.moos.protobuf.Config.incoming_moos_var]: "ACOMMS_UFIELD_DRIVER_IN"    
+        [goby.moos.protobuf.Config.outgoing_moos_var]: "ACOMMS_UFIELD_DRIVER_OUT"
+        [goby.moos.protobuf.Config.ufield_outgoing_moos_var]: "NODE_MESSAGE_LOCAL"
+        [goby.moos.protobuf.Config.rate_to_bytes]: 32 
+        [goby.moos.protobuf.Config.modem_id_lookup_path]: "modem_id_table.txt"
+    }
+    mac_cfg
+    {
+        type: MAC_FIXED_DECENTRALIZED
+        slot { type: DATA src: 1 rate: 0 slot_seconds: 10 } 
+    }
+
+    multiplex_create_moos_var: "LIAISON_COMMANDER_OUT"
+}

@@ -1,0 +1,3 @@
+// id, name, type
+1, sender, unknown
+2, receiver, unknown

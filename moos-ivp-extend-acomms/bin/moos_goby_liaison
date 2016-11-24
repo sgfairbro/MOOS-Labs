@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if [ -e ../../lib/liblab12codecs.so ]; then
+    LD_EXTENSION="so"
+elif [ -e ../../lib/liblab12codecs.dylib ]; then
+    LD_EXTENSION="dylib"
+else
+    "Failed to determine dynamic library extension"
+fi
+
+
+
+GOBY_LIAISON_PLUGINS=$HOME/goby/lib/libliaison_plugins_goby_moos.$LD_EXTENSION goby_liaison $@

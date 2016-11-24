@@ -1,0 +1,1 @@
+/usr/bin/c++    -fPIC -g    CMakeFiles/pCoroner.dir/pCoroner.cpp.o CMakeFiles/pCoroner.dir/pCoronerMain.cpp.o  -o ../../../bin/pCoroner  -L/home/sgfairbro/moos-ivp/lib -rdynamic -lmbutil /home/sgfairbro/moos-ivp/MOOS/MOOSCore/lib/libMOOS.a -lpthread -lm -Wl,-rpath,/home/sgfairbro/moos-ivp/lib 

@@ -1,0 +1,64 @@
+#define HOST localhost
+#define PORT 9000
+#define UDP_PORT 9100
+#define COMMUNITY sender
+#define MODEM_ID 1 
+
+#define RECEIVER_HOST localhost
+#define RECEIVER_UDP_PORT 9101
+#define RECEIVER_COMMUNITY receiver
+
+
+ServerHost=$(HOST)
+ServerPort=$(PORT)
+Community=$(COMMUNITY)
+
+
+ProcessConfig = ANTLER
+{
+    MSBetweenLaunches=0
+
+    Run = MOOSDB @ NewConsole = true
+
+    Run = pMOOSBridge @ NewConsole = false ~ pMOOSBridge_$(COMMUNITY)
+
+    Run = pAcommsHandler @ NewConsole = true,XConfig=1 ~ pAcommsHandler_sender
+    Run = pAcommsExample @ NewConsole = true,XConfig=2
+    Run = uXMS @ NewConsole = true,XConfig=3~uXMS1
+    Run = uXMS @ NewConsole = true,XConfig=4~uXMS2
+    Run = pCoroner @ NewConsole = true,XConfig=5
+
+    1 = -geometry,200x30+0+0,-bg,black,-fg,gray,-T,pAcommsHandler_sender
+    2 = -geometry,80x15+0+230,-bg,black,-fg,gray
+    3 = -geometry,80x15+0+460,-bg,black,-fg,gray
+    4 = -geometry,80x10+0+690,-bg,black,-fg,gray
+    5 = -geometry,80x10+0+950,-bg,black,-fg,gray
+}
+
+#include plug_pAcommsHandler.moos
+
+ProcessConfig = pAcommsExample
+{
+    post_interval1 = 1
+    post_interval2 = 1
+    out_moos_var1 = ACOMMS_EXAMPLE1_OUT
+    out_moos_var2 = ACOMMS_EXAMPLE2_OUT
+}
+
+ProcessConfig = pMOOSBridge_$(COMMUNITY)
+{
+  UDPListen = $(UDP_PORT)
+  BridgeFrequency = 0
+  
+  UDPSHARE = [ACOMMS_UFIELD_DRIVER_OUT] -> $(RECEIVER_COMMUNITY) @ $(RECEIVER_HOST):$(RECEIVER_UDP_PORT) [ACOMMS_UFIELD_DRIVER_IN]
+}
+
+ProcessConfig = uXMS1
+{
+    HISTORY_VAR = ACOMMS_EXAMPLE1_OUT
+}
+
+ProcessConfig = uXMS2
+{
+    HISTORY_VAR = ACOMMS_EXAMPLE2_OUT
+}

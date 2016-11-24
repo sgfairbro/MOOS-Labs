@@ -1,0 +1,18 @@
+//------------------------------------------------------------------
+// pCoroner configuration  block
+
+ProcessConfig = ANTLER
+{
+    MSBetweenLaunches = 500
+
+    Run = MOOSDB		@ NewConsole = false
+    Run = iMicroModem           @ NewConsole = $(POPUP_ACOMMS)  
+    Run = pAcommsPoller	        @  NewConsole = $(POPUP_ACOMMS)
+}
+
+
+ProcessConfig = pCoroner
+{
+  // all case insensitive
+  summary_var = CORONER_SUMMARY  
+}

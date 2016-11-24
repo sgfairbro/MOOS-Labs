@@ -1,0 +1,21 @@
+import "goby/acomms/protobuf/dccl_option_extensions.proto"; // provides "dccl.msg" and "dccl.field"
+
+message MiniCommand
+{
+  option (dccl.msg).id = 15; // must use < 16 to fit in 5 bits (top 3 bits are 0 in 13-bit minipacket represented as 16-bit & 0x1fff)
+  option (dccl.msg).max_bytes = 2;
+  
+  required int32 destination = 1 [(dccl.field).max=7,
+                                  (dccl.field).min=0]; // three bits
+  enum VehicleState
+  {
+    DEPLOY = 1;
+    RETURN = 2;
+  }
+  optional VehicleState state = 2; // two bits
+
+  required bool manual_override = 3;  // one bit
+          
+  required int32 speed = 4 [(dccl.field).min = 0, (dccl.field).max = 3]; // two bits
+}
+

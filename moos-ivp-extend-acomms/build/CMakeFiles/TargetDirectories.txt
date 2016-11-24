@@ -1,0 +1,5 @@
+/home/sgfairbro/moos-ivp/moos-ivp-extend-acomms/build/src/ctd_tester/CMakeFiles/ctd_tester.dir
+/home/sgfairbro/moos-ivp/moos-ivp-extend-acomms/build/src/codecs/CMakeFiles/lab12codecs.dir
+/home/sgfairbro/moos-ivp/moos-ivp-extend-acomms/build/src/protobuf/CMakeFiles/lab12messages.dir
+/home/sgfairbro/moos-ivp/moos-ivp-extend-acomms/build/src/pAcommsExample/CMakeFiles/pAcommsExample.dir
+/home/sgfairbro/moos-ivp/moos-ivp-extend-acomms/build/src/pCoroner/CMakeFiles/pCoroner.dir

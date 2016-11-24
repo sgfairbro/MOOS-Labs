@@ -1,0 +1,44 @@
+#define HOST localhost
+#define PORT 9001
+#define UDP_PORT 9101
+#define COMMUNITY receiver
+#define MODEM_ID 2
+
+ServerHost=$(HOST)
+ServerPort=$(PORT)
+Community=$(COMMUNITY)
+
+ProcessConfig = ANTLER
+{
+    MSBetweenLaunches=0
+
+    Run = MOOSDB @ NewConsole = false
+    Run = pAcommsHandler @ NewConsole = true,XConfig=1 ~ pAcommsHandler_receiver
+    Run = pMOOSBridge @ NewConsole = false ~ pMOOSBridge_receiver
+    Run = uXMS @ NewConsole = true,XConfig=2~uXMS1
+    Run = uXMS @ NewConsole = true,XConfig=3~uXMS2
+    Run = pCoroner @ NewConsole = true,XConfig=4
+    1 = -geometry,200x30-0+460,-bg,black,-fg,gray,-T,pAcommsHandler_receiver
+    2 = -geometry,80x15-0+0,-bg,black,-fg,gray
+    3 = -geometry,80x15-0+230,-bg,black,-fg,gray
+    4 = -geometry,80x15-0+460,-bg,black,-fg,gray
+
+}
+
+#include plug_pAcommsHandler.moos
+
+ProcessConfig = pMOOSBridge_receiver
+{
+    UDPListen = $(UDP_PORT)
+    BridgeFrequency = 0
+}
+
+ProcessConfig = uXMS1
+{
+    HISTORY_VAR = ACOMMS_EXAMPLE1_IN
+}
+
+ProcessConfig = uXMS2
+{
+    HISTORY_VAR = ACOMMS_EXAMPLE2_IN
+}

@@ -1,0 +1,477 @@
+sgfairbro@Minitron:~/moos-ivp/moos-ivp-extend-acomms$ ctd_tester
+= Begin CTDMessage =
+Actual maximum size of message: 18 bytes / 144 bits [dccl id head: 8, user head: 0, body: 135, padding: 1]
+Allowed maximum size of message: 32 bytes / 256 bits
+== Begin Header ==
+== End Header ==
+== Begin Body ==
+CTDMessage
+ repeated int32 depth = 1 [(.dccl.field) = {
+   min: 0
+   max: 1000
+   max_repeat: 5
+ }];
+ :: size = 50 bit(s)
+ repeated int32 temperature = 2 [(.dccl.field) = {
+   codec: "lab12_arithmetic"
+   max_repeat: 5
+ }];
+ :: min size = 3 bit(s)
+ :: max size = 30 bit(s)
+ repeated double salinity = 3 [(.dccl.field) = {
+   precision: 2
+   min: 25
+   max: 40
+   max_repeat: 5
+ }];
+ :: size = 55 bit(s)
+:: min size = 108 bit(s)
+:: max size = 135 bit(s)
+== End Body ==
+= End CTDMessage =
+****************** BEGIN TEST 0 ******************* 
+In: depth: [12, 13, 14, 13, 13] temperature: [19, 19, 18, 17, 17] salinity: [30.09, 30.1, 30.11, 30.12, 30.13] 
+Try encode ...
+Symbol is: 19
+Old range is: [0,1)
+New range is: [0.87,0.89)
+Symbol is: 19
+Old range is: [0.87,0.89)
+New range is: [0.8874,0.8878)
+Symbol is: 18
+Old range is: [0.8874,0.8878)
+New range is: [0.88774,0.887748)
+Symbol is: 17
+Old range is: [0.88774,0.887748)
+New range is: [0.88774664,0.8877468)
+Symbol is: 17
+Old range is: [0.88774664,0.8877468)
+New range is: [0.8877467728,0.887746776)
+Data bits: 00110111110101100001011000111
+Actual size: 29, entropy (lower bound) size: 29
+Encoded (hex): cc0d38f080030e1c0beb1bfffc0740011210
+Size (bytes): 18
+Default codec size (bytes): 17
+Try decode...
+found symbol: 19
+range: [0.87,0.89)
+found symbol: 19
+range: [0.8874,0.8878)
+found symbol: 18
+range: [0.88774,0.887748)
+found symbol: 17
+range: [0.88774664,0.8877468)
+found symbol: 17
+range: [0.8877467728,0.887746776)
+Out: depth: [12, 13, 14, 13, 13] temperature: [19, 19, 18, 17, 17] salinity: [30.09, 30.1, 30.11, 30.12, 30.13] 
+***************** PASSED TEST 0 ****************** 
+
+****************** BEGIN TEST 1 ******************* 
+In: depth: [12, 13, 14, 13, 13] temperature: [10, 10, 10, 10, 10] salinity: [30.09, 30.1, 30.11, 30.12, 30.13] 
+Try encode ...
+Symbol is: 10
+Old range is: [0,1)
+New range is: [0,0.71)
+Symbol is: 10
+Old range is: [0,0.71)
+New range is: [0,0.5041)
+Symbol is: 10
+Old range is: [0,0.5041)
+New range is: [0,0.357911)
+Symbol is: 10
+Old range is: [0,0.357911)
+New range is: [0,0.25411681)
+Symbol is: 10
+Old range is: [0,0.25411681)
+New range is: [0,0.1804229351)
+Data bits: 000
+Actual size: 3, entropy (lower bound) size: 3
+Encoded (hex): cc0d38f080030ec03fff0150800404
+Size (bytes): 15
+Default codec size (bytes): 17
+Try decode...
+found symbol: 10
+range: [0,0.71)
+found symbol: 10
+range: [0,0.5041)
+found symbol: 10
+range: [0,0.357911)
+found symbol: 10
+range: [0,0.25411681)
+found symbol: 10
+range: [0,0.1804229351)
+Out: depth: [12, 13, 14, 13, 13] temperature: [10, 10, 10, 10, 10] salinity: [30.09, 30.1, 30.11, 30.12, 30.13] 
+***************** PASSED TEST 1 ****************** 
+
+****************** BEGIN TEST 2 ******************* 
+In: depth: [12, 13, 14, 13, 13] temperature: [10, 10, 10, 10, 10] salinity: [30.09, 30.1, 30.11, 30.12, 30.13] 
+Try encode ...
+Symbol is: 10
+Old range is: [0,1)
+New range is: [0,0.71)
+Symbol is: 10
+Old range is: [0,0.71)
+New range is: [0,0.5041)
+Symbol is: 10
+Old range is: [0,0.5041)
+New range is: [0,0.357911)
+Symbol is: 10
+Old range is: [0,0.357911)
+New range is: [0,0.25411681)
+Symbol is: 10
+Old range is: [0,0.25411681)
+New range is: [0,0.1804229351)
+Data bits: 000
+Actual size: 3, entropy (lower bound) size: 3
+Encoded (hex): cc0d38f080030ec03fff0150800404
+Size (bytes): 15
+Default codec size (bytes): 17
+Try decode...
+found symbol: 10
+range: [0,0.71)
+found symbol: 10
+range: [0,0.5041)
+found symbol: 10
+range: [0,0.357911)
+found symbol: 10
+range: [0,0.25411681)
+found symbol: 10
+range: [0,0.1804229351)
+Out: depth: [12, 13, 14, 13, 13] temperature: [10, 10, 10, 10, 10] salinity: [30.09, 30.1, 30.11, 30.12, 30.13] 
+***************** PASSED TEST 2 ****************** 
+
+****************** BEGIN TEST 3 ******************* 
+In: depth: [12, 13, 14, 13, 13] temperature: [10, 10, 10, 10, 20] salinity: [30.09, 30.1, 30.11, 30.12, 30.13] 
+Try encode ...
+Symbol is: 10
+Old range is: [0,1)
+New range is: [0,0.71)
+Symbol is: 10
+Old range is: [0,0.71)
+New range is: [0,0.5041)
+Symbol is: 10
+Old range is: [0,0.5041)
+New range is: [0,0.357911)
+Symbol is: 10
+Old range is: [0,0.357911)
+New range is: [0,0.25411681)
+Symbol is: 20
+Old range is: [0,0.25411681)
+New range is: [0.2261639609,0.25411681)
+Data bits: 111100
+Actual size: 6, entropy (lower bound) size: 6
+Encoded (hex): cc0d38f080030ef0fef90f80022420
+Size (bytes): 15
+Default codec size (bytes): 17
+Try decode...
+found symbol: 10
+range: [0,0.71)
+found symbol: 10
+range: [0,0.5041)
+found symbol: 10
+range: [0,0.357911)
+found symbol: 10
+range: [0,0.25411681)
+found symbol: 20
+range: [0.2261639609,0.25411681)
+Out: depth: [12, 13, 14, 13, 13] temperature: [10, 10, 10, 10, 20] salinity: [30.09, 30.1, 30.11, 30.12, 30.13] 
+***************** PASSED TEST 3 ****************** 
+
+****************** BEGIN TEST 4 ******************* 
+In: depth: [12, 13, 14, 13, 13] temperature: [10, 19, 10, 10, 15] salinity: [30.09, 30.1, 30.11, 30.12, 30.13] 
+Try encode ...
+Symbol is: 10
+Old range is: [0,1)
+New range is: [0,0.71)
+Symbol is: 19
+Old range is: [0,0.71)
+New range is: [0.6177,0.6319)
+Symbol is: 10
+Old range is: [0.6177,0.6319)
+New range is: [0.6177,0.627782)
+Symbol is: 10
+Old range is: [0.6177,0.627782)
+New range is: [0.6177,0.62485822)
+Symbol is: 15
+Old range is: [0.6177,0.62485822)
+New range is: [0.6233549938,0.6234981582)
+Data bits: 01100111111001
+Actual size: 14, entropy (lower bound) size: 13
+Encoded (hex): cc0d38f080030ee467fef90f80022420
+Size (bytes): 16
+Default codec size (bytes): 17
+Try decode...
+found symbol: 10
+range: [0,0.71)
+found symbol: 19
+range: [0.6177,0.6319)
+found symbol: 10
+range: [0.6177,0.627782)
+found symbol: 10
+range: [0.6177,0.62485822)
+found symbol: 15
+range: [0.6233549938,0.6234981582)
+Out: depth: [12, 13, 14, 13, 13] temperature: [10, 19, 10, 10, 15] salinity: [30.09, 30.1, 30.11, 30.12, 30.13] 
+***************** PASSED TEST 4 ****************** 
+
+****************** BEGIN TEST 5 ******************* 
+In: depth: [12, 13, 14, 13, 13] temperature: [10, 10, 10, 10, 10] salinity: [30.09, 30.1, 30.11, 30.12, 30.13] 
+Try encode ...
+Symbol is: 10
+Old range is: [0,1)
+New range is: [0,0.71)
+Symbol is: 10
+Old range is: [0,0.71)
+New range is: [0,0.5041)
+Symbol is: 10
+Old range is: [0,0.5041)
+New range is: [0,0.357911)
+Symbol is: 10
+Old range is: [0,0.357911)
+New range is: [0,0.25411681)
+Symbol is: 10
+Old range is: [0,0.25411681)
+New range is: [0,0.1804229351)
+Data bits: 000
+Actual size: 3, entropy (lower bound) size: 3
+Encoded (hex): cc0d38f080030ec03fff0150800404
+Size (bytes): 15
+Default codec size (bytes): 17
+Try decode...
+found symbol: 10
+range: [0,0.71)
+found symbol: 10
+range: [0,0.5041)
+found symbol: 10
+range: [0,0.357911)
+found symbol: 10
+range: [0,0.25411681)
+found symbol: 10
+range: [0,0.1804229351)
+Out: depth: [12, 13, 14, 13, 13] temperature: [10, 10, 10, 10, 10] salinity: [30.09, 30.1, 30.11, 30.12, 30.13] 
+***************** PASSED TEST 5 ****************** 
+
+****************** BEGIN TEST 6 ******************* 
+In: depth: [12, 13, 14, 13, 13] temperature: [10, 10, 16, 10, 10] salinity: [30.09, 30.1, 30.11, 30.12, 30.13] 
+Try encode ...
+Symbol is: 10
+Old range is: [0,1)
+New range is: [0,0.71)
+Symbol is: 10
+Old range is: [0,0.71)
+New range is: [0,0.5041)
+Symbol is: 16
+Old range is: [0,0.5041)
+New range is: [0.408321,0.418403)
+Symbol is: 10
+Old range is: [0.408321,0.418403)
+New range is: [0.408321,0.41547922)
+Symbol is: 10
+Old range is: [0.408321,0.41547922)
+New range is: [0.408321,0.4134033362)
+Data bits: 010010110
+Actual size: 9, entropy (lower bound) size: 8
+Encoded (hex): cc0d38f080030e58f2cf7f0014200101
+Size (bytes): 16
+Default codec size (bytes): 17
+Try decode...
+found symbol: 10
+range: [0,0.71)
+found symbol: 10
+range: [0,0.5041)
+found symbol: 16
+range: [0.408321,0.418403)
+found symbol: 10
+range: [0.408321,0.41547922)
+found symbol: 10
+range: [0.408321,0.4134033362)
+Out: depth: [12, 13, 14, 13, 13] temperature: [10, 10, 16, 10, 10] salinity: [30.09, 30.1, 30.11, 30.12, 30.13] 
+***************** PASSED TEST 6 ****************** 
+
+****************** BEGIN TEST 7 ******************* 
+In: depth: [12, 13, 14, 13, 13] temperature: [10, 10, 10, 10, 10] salinity: [30.09, 30.1, 30.11, 30.12, 30.13] 
+Try encode ...
+Symbol is: 10
+Old range is: [0,1)
+New range is: [0,0.71)
+Symbol is: 10
+Old range is: [0,0.71)
+New range is: [0,0.5041)
+Symbol is: 10
+Old range is: [0,0.5041)
+New range is: [0,0.357911)
+Symbol is: 10
+Old range is: [0,0.357911)
+New range is: [0,0.25411681)
+Symbol is: 10
+Old range is: [0,0.25411681)
+New range is: [0,0.1804229351)
+Data bits: 000
+Actual size: 3, entropy (lower bound) size: 3
+Encoded (hex): cc0d38f080030ec03fff0150800404
+Size (bytes): 15
+Default codec size (bytes): 17
+Try decode...
+found symbol: 10
+range: [0,0.71)
+found symbol: 10
+range: [0,0.5041)
+found symbol: 10
+range: [0,0.357911)
+found symbol: 10
+range: [0,0.25411681)
+found symbol: 10
+range: [0,0.1804229351)
+Out: depth: [12, 13, 14, 13, 13] temperature: [10, 10, 10, 10, 10] salinity: [30.09, 30.1, 30.11, 30.12, 30.13] 
+***************** PASSED TEST 7 ****************** 
+
+****************** BEGIN TEST 8 ******************* 
+In: depth: [12, 13, 14, 13, 13] temperature: [18, 20, 10, 15, 10] salinity: [30.09, 30.1, 30.11, 30.12, 30.13] 
+Try encode ...
+Symbol is: 18
+Old range is: [0,1)
+New range is: [0.85,0.87)
+Symbol is: 20
+Old range is: [0.85,0.87)
+New range is: [0.8678,0.87)
+Symbol is: 10
+Old range is: [0.8678,0.87)
+New range is: [0.8678,0.869362)
+Symbol is: 15
+Old range is: [0.8678,0.869362)
+New range is: [0.86903398,0.86906522)
+Symbol is: 10
+Old range is: [0.86903398,0.86906522)
+New range is: [0.86903398,0.8690561604)
+Data bits: 11001111001111011
+Actual size: 17, entropy (lower bound) size: 16
+Encoded (hex): cc0d38f080030eec79f6cf7f0014200101
+Size (bytes): 17
+Default codec size (bytes): 17
+Try decode...
+found symbol: 18
+range: [0.85,0.87)
+found symbol: 20
+range: [0.8678,0.87)
+found symbol: 10
+range: [0.8678,0.869362)
+found symbol: 15
+range: [0.86903398,0.86906522)
+found symbol: 10
+range: [0.86903398,0.8690561604)
+Out: depth: [12, 13, 14, 13, 13] temperature: [18, 20, 10, 15, 10] salinity: [30.09, 30.1, 30.11, 30.12, 30.13] 
+***************** PASSED TEST 8 ****************** 
+
+****************** BEGIN TEST 9 ******************* 
+In: depth: [12, 13, 14, 13, 13] temperature: [10, 10, 12, 10, 10] salinity: [30.09, 30.1, 30.11, 30.12, 30.13] 
+Try encode ...
+Symbol is: 10
+Old range is: [0,1)
+New range is: [0,0.71)
+Symbol is: 10
+Old range is: [0,0.71)
+New range is: [0,0.5041)
+Symbol is: 12
+Old range is: [0,0.5041)
+New range is: [0.367993,0.378075)
+Symbol is: 10
+Old range is: [0.367993,0.378075)
+New range is: [0.367993,0.37515122)
+Symbol is: 10
+Old range is: [0.367993,0.37515122)
+New range is: [0.367993,0.3730753362)
+Data bits: 011111010
+Actual size: 9, entropy (lower bound) size: 8
+Encoded (hex): cc0d38f080030ee8f3cf7f0014200101
+Size (bytes): 16
+Default codec size (bytes): 17
+Try decode...
+found symbol: 10
+range: [0,0.71)
+found symbol: 10
+range: [0,0.5041)
+found symbol: 12
+range: [0.367993,0.378075)
+found symbol: 10
+range: [0.367993,0.37515122)
+found symbol: 10
+range: [0.367993,0.3730753362)
+Out: depth: [12, 13, 14, 13, 13] temperature: [10, 10, 12, 10, 10] salinity: [30.09, 30.1, 30.11, 30.12, 30.13] 
+***************** PASSED TEST 9 ****************** 
+
+****************** BEGIN TEST 10 ******************* 
+In: depth: [12, 13, 14, 13, 13] temperature: [10, 10, 10, 10, 10] salinity: [30.09, 30.1, 30.11, 30.12, 30.13] 
+Try encode ...
+Symbol is: 10
+Old range is: [0,1)
+New range is: [0,0.71)
+Symbol is: 10
+Old range is: [0,0.71)
+New range is: [0,0.5041)
+Symbol is: 10
+Old range is: [0,0.5041)
+New range is: [0,0.357911)
+Symbol is: 10
+Old range is: [0,0.357911)
+New range is: [0,0.25411681)
+Symbol is: 10
+Old range is: [0,0.25411681)
+New range is: [0,0.1804229351)
+Data bits: 000
+Actual size: 3, entropy (lower bound) size: 3
+Encoded (hex): cc0d38f080030ec03fff0150800404
+Size (bytes): 15
+Default codec size (bytes): 17
+Try decode...
+found symbol: 10
+range: [0,0.71)
+found symbol: 10
+range: [0,0.5041)
+found symbol: 10
+range: [0,0.357911)
+found symbol: 10
+range: [0,0.25411681)
+found symbol: 10
+range: [0,0.1804229351)
+Out: depth: [12, 13, 14, 13, 13] temperature: [10, 10, 10, 10, 10] salinity: [30.09, 30.1, 30.11, 30.12, 30.13] 
+***************** PASSED TEST 10 ****************** 
+
+****************** BEGIN TEST 11 ******************* 
+In: depth: [12, 13, 14, 13, 13] temperature: [10, 10, 13, 17, 15] salinity: [30.09, 30.1, 30.11, 30.12, 30.13] 
+Try encode ...
+Symbol is: 10
+Old range is: [0,1)
+New range is: [0,0.71)
+Symbol is: 10
+Old range is: [0,0.71)
+New range is: [0,0.5041)
+Symbol is: 13
+Old range is: [0,0.5041)
+New range is: [0.378075,0.388157)
+Symbol is: 17
+Old range is: [0.378075,0.388157)
+New range is: [0.38644306,0.3866447)
+Symbol is: 15
+Old range is: [0.38644306,0.3866447)
+New range is: [0.3866023556,0.3866063884)
+Data bits: 0010001111101000110
+Actual size: 19, entropy (lower bound) size: 18
+Encoded (hex): cc0d38f080030e187dc43fff0150800404
+Size (bytes): 17
+Default codec size (bytes): 17
+Try decode...
+found symbol: 10
+range: [0,0.71)
+found symbol: 10
+range: [0,0.5041)
+found symbol: 13
+range: [0.378075,0.388157)
+found symbol: 17
+range: [0.38644306,0.3866447)
+found symbol: 15
+range: [0.3866023556,0.3866063884)
+Out: depth: [12, 13, 14, 13, 13] temperature: [10, 10, 13, 17, 15] salinity: [30.09, 30.1, 30.11, 30.12, 30.13] 
+***************** PASSED TEST 11 ****************** 
+
+all tests passed
+sgfairbro@Minitron:~/moos-ivp/moos-ivp-extend-acomms$ 

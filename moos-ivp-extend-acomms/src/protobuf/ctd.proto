@@ -1,0 +1,23 @@
+import "goby/acomms/protobuf/dccl_option_extensions.proto"; // provides "dccl.msg" and "dccl.field"
+
+message CTDMessage
+{
+  option (dccl.msg).id = 102;
+  option (dccl.msg).max_bytes = 32;
+  
+  repeated int32 depth = 1 [(dccl.field).max=1000,
+                            (dccl.field).min=0,
+                            (dccl.field).max_repeat=5];
+
+  //repeated int32 temperature = 2 [(dccl.field).max=20,
+  //                                (dccl.field).min=10,
+  //                                (dccl.field).max_repeat=5];
+  
+  repeated int32 temperature = 2 [(dccl.field).max_repeat=5,
+                                  (dccl.field).codec="lab12_arithmetic"];
+  
+  repeated double salinity = 3 [(dccl.field).max=40,
+                                (dccl.field).min=25,
+                                (dccl.field).precision=2,
+                                (dccl.field).max_repeat=5];
+}

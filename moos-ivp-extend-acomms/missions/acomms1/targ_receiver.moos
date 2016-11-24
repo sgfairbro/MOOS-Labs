@@ -1,0 +1,114 @@
+
+ServerHost=localhost
+ServerPort=9001
+Community=receiver
+
+ProcessConfig = ANTLER
+{
+    MSBetweenLaunches=0
+
+    Run = MOOSDB @ NewConsole = false
+    Run = pAcommsHandler @ NewConsole = true,XConfig=1 ~ pAcommsHandler_receiver
+    Run = pMOOSBridge @ NewConsole = false ~ pMOOSBridge_receiver
+    Run = uXMS @ NewConsole = true,XConfig=2~uXMS1
+    Run = uXMS @ NewConsole = true,XConfig=3~uXMS2
+    Run = pCoroner @ NewConsole = true,XConfig=4
+    1 = -geometry,200x30-0+460,-bg,black,-fg,gray,-T,pAcommsHandler_receiver
+    2 = -geometry,80x15-0+0,-bg,black,-fg,gray
+    3 = -geometry,80x15-0+230,-bg,black,-fg,gray
+    4 = -geometry,80x15-0+460,-bg,black,-fg,gray
+
+}
+
+ProcessConfig = pAcommsHandler_receiver
+{
+    // unique identifier for this node (like a MAC address)
+    modem_id: 2
+
+    common
+    {
+        verbosity: DEBUG1
+        show_gui: true
+        app_tick: 10
+        comm_tick: 10 
+        log: false
+    }
+    
+    load_shared_library: "../../lib/liblab12messages.so"
+    load_shared_library: "../../lib/liblab12codecs.so"    
+    
+    queue_cfg { 
+        message_entry {  
+            protobuf_name: "AcommsExampleMessage1"
+            newest_first: true
+            ttl: 1800  # in seconds
+            value_base: 1  # relative to other messages
+            max_queue: 100  # limit on number of messages in queue
+        }
+        message_entry {  
+            protobuf_name: "AcommsExampleMessage2"
+            newest_first: true
+            ttl: 1800  
+            value_base: 1  
+            max_queue: 100
+        }
+    }
+
+    translator_entry 
+    { 
+        protobuf_name: "AcommsExampleMessage1"
+        trigger { type: TRIGGER_PUBLISH  moos_var: "ACOMMS_EXAMPLE1_OUT"  }
+        create  { technique: TECHNIQUE_PROTOBUF_TEXT_FORMAT  
+                  moos_var: "ACOMMS_EXAMPLE1_OUT" }
+        publish { technique: TECHNIQUE_PROTOBUF_TEXT_FORMAT  
+                  moos_var: "ACOMMS_EXAMPLE1_IN" }
+    }
+
+    translator_entry 
+    { 
+        protobuf_name: "AcommsExampleMessage2"
+        trigger { type: TRIGGER_PUBLISH  moos_var: "ACOMMS_EXAMPLE2_OUT"  }
+        create  { technique: TECHNIQUE_PROTOBUF_TEXT_FORMAT  
+                  moos_var: "ACOMMS_EXAMPLE2_OUT" }
+        publish { technique: TECHNIQUE_PROTOBUF_TEXT_FORMAT  
+                  moos_var: "ACOMMS_EXAMPLE2_IN" }
+    }
+
+    
+    driver_type: DRIVER_UFIELD_SIM_DRIVER
+    driver_cfg 
+    {
+        [goby.moos.protobuf.Config.moos_server]: "localhost"  
+        [goby.moos.protobuf.Config.moos_port]: 9001  
+        [goby.moos.protobuf.Config.incoming_moos_var]: "ACOMMS_UFIELD_DRIVER_IN"    
+        [goby.moos.protobuf.Config.outgoing_moos_var]: "ACOMMS_UFIELD_DRIVER_OUT"
+        [goby.moos.protobuf.Config.ufield_outgoing_moos_var]: "NODE_MESSAGE_LOCAL"
+        [goby.moos.protobuf.Config.rate_to_bytes]: 32 
+        [goby.moos.protobuf.Config.modem_id_lookup_path]: "modem_id_table.txt"
+    }
+    mac_cfg
+    {
+        type: MAC_FIXED_DECENTRALIZED
+        slot { type: DATA src: 1 rate: 0 slot_seconds: 10 } 
+    }
+
+    multiplex_create_moos_var: "LIAISON_COMMANDER_OUT"
+}
+
+
+ProcessConfig = pMOOSBridge_receiver
+{
+    UDPListen = 9101
+    BridgeFrequency = 0
+}
+
+ProcessConfig = uXMS1
+{
+    HISTORY_VAR = ACOMMS_EXAMPLE1_IN
+}
+
+ProcessConfig = uXMS2
+{
+    HISTORY_VAR = ACOMMS_EXAMPLE2_IN
+}
+

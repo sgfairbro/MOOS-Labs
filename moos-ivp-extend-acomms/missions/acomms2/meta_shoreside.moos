@@ -1,0 +1,33 @@
+#define HOST localhost
+#define PORT 9000
+#define UDP_PORT 9100
+#define COMMUNITY sender
+#define MODEM_ID 1 
+#define MICROMODEM_PORT /dev/ttyUSB0
+
+ServerHost=$(HOST)
+ServerPort=$(PORT)
+Community=$(COMMUNITY)
+
+
+ProcessConfig = ANTLER
+{
+    MSBetweenLaunches=0
+
+    Run = MOOSDB @ NewConsole = false
+    Run = pAcommsHandler @ NewConsole = true,XConfig=1
+    
+    Run = moos_gateway_g  @ NewConsole = true,XConfig=2,ExtraProcessParams=GatewayParams,InhibitMOOSParams=true  
+    GatewayParams = -c,moos_gateway_g.pb.cfg
+    Run = moos_goby_liaison  @ NewConsole = true,XConfig=3,ExtraProcessParams=LiaisonParams,InhibitMOOSParams=true  
+    LiaisonParams = -c,goby_liaison.pb.cfg 
+
+    Run = pCoroner @ NewConsole = true,XConfig=4
+
+    1 = -geometry,200x30+0+0,-bg,black,-fg,gray,-T,pAcommsHandler_sender
+    2 = -geometry,80x15+0+460,-bg,black,-fg,gray
+    3 = -geometry,80x15+0+690,-bg,black,-fg,gray
+    4 = -geometry,80x10+0+950,-bg,black,-fg,gray
+}
+
+#include plug_pAcommsHandler.moos
